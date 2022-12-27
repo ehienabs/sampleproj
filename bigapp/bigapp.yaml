@@ -12,3 +12,5 @@ spec:
   destination:
     name: in-cluster
     namespace: dev
+  syncPolicy:
+    automated: {}    
