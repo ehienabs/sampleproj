@@ -29,4 +29,4 @@ jobs:
       with:
         args: config use-context draftdev
     - name: deploy project 
-      run:  kubectl apply -f bigapp/bigapp.yaml   
+      run:  kubectl apply -f bigapp.yaml   
