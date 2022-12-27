@@ -22,11 +22,11 @@ jobs:
     steps:    
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Install civo
-      uses: civo/action-civo
+    - name: Create kubeconfig
+      uses: actions-hub/kubectl@master
+      env:
+        KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
       with:
-        token: ${{ secrets.CIVO_TOKEN }}
-    - name: Save Civo kubeconfig
-      run: civo kubernetes config draftdev
+        args: config use-context draftdev
     - name: deploy project 
-      run:  kubectl apply -f bigapp.yaml   
+      run:  kubectl apply -f bigapp/bigapp.yaml   
