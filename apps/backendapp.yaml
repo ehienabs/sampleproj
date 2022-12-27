@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backendapp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ehienabs/sampleproj.git
+    targetRevision: HEAD
+    path: backend
+  destination:
+    name: in-cluster
+    namespace: dev
